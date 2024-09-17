@@ -1,0 +1,143 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_deaths_BubbleChartData
+type: text/vnd.tiddlywiki
+
+
+
+var option = {
+  dataset: [{
+    source: [
+            ["Name", "Profession", "Deaths", "Damage_Taken", "Distance_to_Tag", "color"],
+            ["Animalalfa", "Scrapper", 0.0, 119, 1050.5146, "#A77B50"],
+            ["Artair Caden", "Chronomancer", 0.0, 73, 1497.9231, "#A750A7"],
+            ["Emi Takei", "Dragonhunter", 0.0, 766, 2822.8718, "#50A7D3"],
+            ["Fluidra", "Tempest", 0.0, 307, 822.5256, "#EE6F6A"],
+            ["Kaotic Reaper X", "Druid", 0.0, 126, 863.8504, "#7BD350"],
+            ["Mungdeath", "Scourge", 0.0, 431, 540.9231, "#6DB691"],
+            ["Thrall Fröstwolf", "Catalyst", 0.0, 275, 1108.9615, "#F49F9C"],
+            ["Undeadunwanted", "Reaper", 0.0, 343, 816.4316, "#50A77B"],
+            ["Beefer Sutherlands", "Scrapper", 0.0, 185, 858.359, "#A77B50"],
+            ["Goose Lee", "Firebrand", 0.2581, 773, 771.3487, "#6DB6DA"],
+            ["Goose Willis", "Herald", 0.2581, 925, 0.0, "#D3795D"],
+            ["Kapua Kalani", "Scourge", 0.0, 213, 604.094, "#6DB691"],
+            ["Triss Azathenai", "Druid", 0.1001, 522, 795.9041, "#7BD350"],
+            ["Geese Witherspoon", "Weaver", 0.0, 219, 710.9701, "#F18783"],
+            ["Goose Daddy Rivan", "Berserker", 0.2856, 1086, 1494.8266, "#FFA750"],
+            ["Olivia Sorrows", "Scourge", 0.0, 141, 447.3803, "#6DB691"],
+            ["Snake Bloodgood", "Firebrand", 0.0, 183, 2002.7265, "#6DB6DA"],
+            ["Tater Tilly", "Tempest", 0.0, 101, 1143.0897, "#EE6F6A"],
+            ["Darwyn D Fuego", "Druid", 0.3406, 964, 2916.1367, "#7BD350"],
+            ["Evodguard", "Dragonhunter", 0.0, 165, 1153.7864, "#50A7D3"],
+            ["Hur E Kane", "Scourge", 0.0, 309, 624.1325, "#6DB691"],
+            ["Mad Queen Fae", "Dragonhunter", 0.0, 50, 515.0, "#50A7D3"],
+            ["Stabibitty", "Firebrand", 0.0, 336, 874.9701, "#6DB6DA"],
+            ["Comedylost", "Mirage", 0.0, 235, 1176.3932, "#B66DB6"],
+            ["Khiggles", "Druid", 0.0, 238, 555.7009, "#7BD350"],
+            ["Orang Tango", "Spellbreaker", 0.0, 309, 1458.6966, "#FFB66D"],
+            ["Ren Guarden", "Firebrand", 0.0, 412, 748.0641, "#6DB6DA"],
+            ["Wvwol", "Herald", 0.0, 108, 1450.359, "#D3795D"],
+            ["Dèjávu", "Druid", 0.3306, 900, 4713.5363, "#7BD350"],
+            ["Marek Severyn", "Scourge", 0.0, 321, 587.3376, "#6DB691"],
+            ["Troy Sivan", "Herald", 0.0, 226, 903.859, "#D3795D"],
+            ["Zero Cegadora", "Scourge", 0.0, 187, 811.7778, "#6DB691"],
+            ["The Beanpole", "Reaper", 0.2396, 914, 912.337, "#50A77B"],
+            ["Joséph Elentir", "Berserker", 0.0, 336, 1457.5573, "#FFA750"],
+            ["Tesla Nigma", "Engineer", 0.0, 0, 46665.0, "#996633"],
+            ["Waydot", "Soulbeast", 0.0, 0, 37426.0, "#91DA6D"],
+            ["Basil Huss", "Willbender", 0.4211, 780, 2522.9474, "#8AC4E1"],
+            ["Kulgan Al Thor", "Tempest", 0.3422, 433, 3464.6483, "#EE6F6A"],
+            ["Goose Spríngsteen", "Scourge", 0.3695, 1413, 776.8785, "#6DB691"],
+            ["Rekian", "Scrapper", 0.2781, 925, 747.3727, "#A77B50"],
+            ["Harmoney Rae", "Scourge", 0.2979, 1106, 873.0897, "#6DB691"],
+            ["Harold Baulszak", "Herald", 0.3178, 937, 1458.7511, "#D3795D"],
+            ["Katrina Riker", "Firebrand", 0.3376, 1058, 2319.2648, "#6DB6DA"],
+            ["Nightmare Crone", "Reaper", 0.2979, 1081, 1455.3932, "#50A77B"],
+            ["Akenansi", "Scrapper", 0.3178, 1296, 2788.5693, "#A77B50"],
+            ["Death By Habööb", "Reaper", 0.3822, 1242, 3017.7834, "#50A77B"],
+            ["Snake Bloodgoose", "Firebrand", 0.2979, 954, 4042.2883, "#6DB6DA"],
+            ["Sung Tsu Tao", "Catalyst", 0.2701, 644, 2057.6579, "#F49F9C"],
+            ["Basil Huss", "Firebrand", 0.2632, 936, 2628.9751, "#6DB6DA"],
+            ["Eirakr", "Warrior", 0.1961, 559, 2866.9542, "#FF9933"],
+            ["Vasorvi", "Harbinger", 0.135, 562, 6140.2872, "#8AC4A7"],
+            ["Gael Redhood", "Spellbreaker", 0.0, 22, 2036.0, "#FFB66D"],
+            ["Samwrench", "Scrapper", 0.2405, 822, 11821.2633, "#A77B50"],
+            ["Queen Jellybean", "Tempest", 0.2864, 779, 4269.4926, "#EE6F6A"],
+            ["Nentan", "Firebrand", 0.4423, 1369, 963.6855, "#6DB6DA"],
+            ["Läderach", "Willbender", 0.0, 5, 5096.7253, "#8AC4E1"],
+            ["Best Sell By", "Reaper", 0.4945, 1377, 2942.6401, "#50A77B"],
+            ["Hitmonpanda", "Spellbreaker", 0.2135, 1340, 1001.9004, "#FFB66D"],
+            ["Peeradon Yamsonthor", "Holosmith", 0.2372, 1391, 1516.832, "#B6916D"],
+            ["Feng Yang Choy", "Mechanist", 0.1066, 653, 509.8898, "#C4A78A"],
+            ["Keeper Of The Night", "Harbinger", 0.332, 947, 6473.7566, "#8AC4A7"],
+            ["Pathetic Pug", "Bladesworn", 0.0, 538, 4374.0, "#FFC48A"],
+            ["Pathetic Pug", "Warrior", 0.1481, 1116, 1215.3827, "#FF9933"],
+            ["Arty Tesla", "Holosmith", 0.1017, 736, 2476.8475, "#B6916D"],
+            ["Asteria Reaver", "Firebrand", 0.2034, 981, 8011.5932, "#6DB6DA"],
+            ["Dextéríty", "Soulbeast", 0.0, 818, 612.0, "#91DA6D"],
+            ["Kwhaenor", "Scourge", 0.0, 436, 2434.0, "#6DB691"],
+            ["Zelllfurion", "Scrapper", 0.1042, 487, 15201.0729, "#A77B50"],
+            ["Lostarra Yiil", "Spellbreaker", 0.2034, 1269, 1481.0, "#FFB66D"],
+            ["Gran Chariot", "Firebrand", 0.1233, 604, 1014.408, "#6DB6DA"],
+            ["Xaden Rior Son", "Herald", 0.2222, 1538, 2390.0, "#D3795D"],
+            ["Ometsuki", "Spellbreaker", 0.1442, 669, 3172.6803, "#FFB66D"],
+            ["Ulamög", "Renegade", 0.2222, 698, 403.0, "#DA8F78"],
+            ["Assassin Stryke", "Daredevil", 0.2487, 676, 8784.6114, "#D37B7B"],
+            ["Klee Saria", "Holosmith", 0.2135, 1153, 22361.9484, "#B6916D"],
+            ["Lady Of The Thistle", "Scourge", 0.0, 264, 372.121, "#6DB691"],
+            ["Snapcäster", "Tempest", 0.1244, 447, 366.6819, "#EE6F6A"],
+            ["Q T Kitty", "Spellbreaker", 0.1707, 992, 17018.2589, "#FFB66D"],
+            ["Sophia Shae", "Tempest", 0.1865, 465, 3370.5244, "#EE6F6A"],
+            ["Blind Anomoly", "Renegade", 0.0853, 519, 678.2376, "#DA8F78"],
+            ["Persephone Reaver", "Scourge", 0.0, 506, 12462.2546, "#6DB691"],
+            ["Gimmeboo", "Willbender", 0.229, 774, 227.3817, "#8AC4E1"],
+   ]
+  }],
+  visualMap: {
+    show: true,
+    dimension: 4, // means the 5th column		
+    min: 0.0, // lower bound
+    max: 46665.0, // upper bound
+    inRange: {
+      // Size of the bubble.
+      symbolSize: [5, 50]
+    }
+  },			
+xAxis: {
+    type: 'value',
+    name: "Average Deaths"
+  },
+  yAxis: {
+    type: 'value',
+    name: "Average Damage Taken"
+  },
+  tooltip: {trigger: 'axis',
+        axisPointer: {
+          type: 'cross'
+        },    
+},
+  series: [
+    {
+      type: 'scatter',
+      encode: {
+        // Map "amount" column to x-axis.
+        x: 'Deaths',
+        // Map "product" row to y-axis.
+        y: 'Damage_Taken',
+        // format tooltip
+        tooltip: [0, 1, 2, 3, 4],
+      },	
+      itemStyle: {
+        color: function(seriesIndex) {
+          console.log(seriesIndex);
+        	console.log(seriesIndex.color);
+        	console.log(seriesIndex.data[5]);
+        	if (seriesIndex.data[5]){
+        	  return seriesIndex.data[5];
+        	}
+        }
+      }
+    }
+  ]
+};

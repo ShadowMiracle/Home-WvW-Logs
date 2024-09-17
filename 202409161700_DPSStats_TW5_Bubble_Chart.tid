@@ -1,0 +1,65 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_DPSStats_BubbleChartData
+type: text/vnd.tiddlywiki
+
+
+
+var option = {
+  dataset: [{
+    source: [
+            ["Name", "Profession", "DPS", "Ch2DPS", "Ch5DPS", "CaDPS", "CDPS", "Downs", "Kills", "color", "Fight Time"],
+            ["Goose Willis", "Herald", 834, 86, 163, 94, 1839, 0.28, 0.13, "#D3795D", 3199],
+            ["The Beanpole", "Reaper", 1680, 294, 452, 448, 4308, 1.14, 0.36, "#50A77B", 3151],
+            ["Goose Lee", "Firebrand", 666, 63, 112, 98, 1804, 0.12, 0.1, "#6DB6DA", 2965],
+            ["Goose Spríngsteen", "Scourge", 553, 21, 66, 1, 2445, 0.0, 0.0, "#6DB691", 327],
+            ["Nightmare Crone", "Reaper", 501, 63, 89, 154, 1261, 0.24, 0.13, "#50A77B", 2772],
+            ["Akenansi", "Scrapper", 945, 136, 212, 162, 2406, 0.48, 0.15, "#A77B50", 2763],
+            ["Goose Spríngsteen", "Scourge", 828, 84, 163, 127, 1825, 0.17, 0.08, "#6DB691", 713],
+            ["Harmoney Rae", "Scourge", 593, 45, 79, 74, 1292, 0.0, 0.16, "#6DB691", 769],
+            ["Pathetic Pug", "Warrior", 1218, 72, 198, 306, 2478, 0.15, 0.44, "#FF9933", 405],
+            ["Peeradon Yamsonthor", "Holosmith", 1163, 140, 291, 510, 2714, 0.74, 0.44, "#B6916D", 405],
+            ["Dextéríty", "Soulbeast", 814, 171, 246, 253, 1570, 0.56, 0.19, "#91DA6D", 320],
+   ]
+  }],
+  visualMap: {
+    show: true,
+    dimension: 6, // means the 7th column		
+    min: 0, // lower bound
+    max: 7198, // upper bound
+    inRange: {
+      // Size of the bubble.
+      symbolSize: [5, 50]
+    }
+  },			
+xAxis: {
+    type: 'value',
+    name: "Ch5DPS"
+  },
+  yAxis: {
+    type: 'value',
+    name: "CaDPS"
+  },
+  tooltip: {trigger: 'axis'},
+  series: [
+    {
+      type: 'scatter',
+      encode: {
+        // Map "amount" column to x-axis.
+        x: 'Ch5DPS',
+        // Map "product" row to y-axis.
+        y: 'CaDPS',
+        // format tooltip
+        tooltip: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10],
+      },	
+      itemStyle: {
+        color: function(seriesIndex) {
+        	if (seriesIndex.data[9]){
+        	  return seriesIndex.data[9];
+        	}
+        }
+      }
+    }
+  ]
+};

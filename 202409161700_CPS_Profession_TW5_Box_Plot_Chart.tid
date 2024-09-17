@@ -1,0 +1,64 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_CPS_Profession_Box_PlotChartData
+type: text/vnd.tiddlywiki
+
+const professions = ['Berserker_Dps', 'Catalyst_Dps', 'Chronomancer_Support', 'Daredevil_Dps', 'Dragonhunter_Dps', 'Druid_Dps', 'Druid_Support', 'Firebrand_Cele', 'Firebrand_Dps', 'Firebrand_Support', 'Harbinger_Dps', 'Herald_Dps', 'Holosmith_Dps', 'Mechanist_Dps', 'Reaper_Dps', 'Renegade_Dps', 'Scourge_Cele', 'Scourge_Condi', 'Scourge_Dps', 'Scrapper_Dps', 'Scrapper_Support', 'Soulbeast_Cele', 'Spellbreaker_Cele', 'Spellbreaker_Dps', 'Spellbreaker_Support', 'Tempest_Cele', 'Tempest_Dps', 'Tempest_Support', 'Warrior_Dps', 'Weaver_Dps', 'Willbender_Dps', 'Willbender_Support']
+
+ProfessionColor = {"Warrior":"#FFD166", "Berserker":"#B39247", "Spellbreaker":"#665429", "Bladesworm":"#19150A", "Guardian":"#72C1D9", "Dragonhunter":"#508798", "Firebrand":"#2E4D57", "Willbender":"#0B1316", "Revenant":"#D16E5A", "Herald":"#924D3F", "Renegade":"#542C24", "Vindicator":"#2A1612", "Engineer":"#D09C59", "Scrapper":"#926D3E", "Holosmith":"#533E24", "Mechanist":"#2A1F12", "Ranger":"#8CDC82", "Druid":"#629A5B", "Soulbeast":"#385834", "Untamed":"#1C2C1A", "Thief":"#C08F95", "Daredevil":"#866468", "Deadeye":"#4D393C", "Specter":"#261D1E", "Elementalist":"#F68A87", "Tempest":"#AC615F", "Weaver":"#623736", "Catalyst":"#311C1B", "Mesmer":"#B679D5", "Chronomancer":"#7F5595", "Mirage":"#493055", "Virtuoso":"#24182B", "Necromancer":"#52A76F", "Reaper":"#39754E", "Scourge":"#21432C", "Harbinger":"#08110B"}
+option = {
+  title: [
+    {text: 'CPS by Profession across all fights', left: 'center'},
+    {text: 'CPS across all fights \nupper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR', borderColor: '#999', borderWidth: 1, textStyle: {fontSize: 10}, left: '1%', top: '90%'}
+  ],
+dataset: [
+    {
+      // prettier-ignore
+      source: [[0.1752, 0.0333, 0.2114, 0.155, 0.2013, 0.0031, 0.0729, 0.3493, 0.1663, 0.0621, 0.1886, 0.0706, 0.0718, 0.1186, 0.0936, 0.1234, 0.144, 0.1123], [0.0282, 0.0204, 0.2188, 0.2828], [0.1115, 0.3242], [0.0086, 0.0211, 0.0213, 0.1234], [0.0478, 0.5894, 0.0248, 0.0423], [0.8752], [0.4938, 0.4142, 0.5416, 1.1789, 0.7487, 0.1831, 0.9303, 0.9162, 1.8183, 2.3821, 0.5786, 0.6438, 1.0817, 0.1442, 2.2144, 1.6608, 0.058, 0.1759, 0.4335, 2.0178, 1.5137, 1.1129, 0.5366, 0.4429, 1.3953, 1.0356, 0.8582, 0.6004, 0.2117, 0.5494, 0.4257, 0.4772, 0.6335, 0.1403], [0.3983, 0.5735, 0.0832, 0.2164, 0.2114, 0.5497], [0.0478, 0.0743, 0.0333, 0.2255, 0.0204, 0.0122, 0.375, 0.0721, 0.3173, 0.1258, 0.151, 0.0348, 0.0174, 0.0232, 0.0157, 0.022, 0.1099, 0.0486, 0.1459, 0.316, 0.1164, 0.4192, 0.8384, 0.3493, 0.1151, 0.0452, 0.0754, 0.0235, 0.1404, 0.0468, 0.2706, 0.0704, 0.013, 0.0543, 0.0284, 0.0142, 0.0494, 0.0082, 0.4608, 0.0288, 0.144, 0.0421, 0.014, 0.0281], [0.0797, 0.0999, 0.1128, 0.2241, 0.476, 0.8304, 0.1947, 0.1094, 0.9082, 0.1919, 0.1151, 0.307, 0.2814, 0.3502, 0.1582, 0.0452, 0.0532, 0.1417, 0.1697, 0.7354, 0.6222, 0.3583, 0.5296, 0.4001, 0.0655, 0.3651, 0.4338, 0.1149, 0.5411, 0.2409, 0.0518, 0.108, 0.108, 0.0453, 0.0543, 0.0845, 0.3406, 0.22, 0.1277, 0.1646, 0.4751, 0.1964], [0.064, 0.0056], [0.0478, 0.0319, 0.0999, 0.155, 0.0774, 0.0163, 0.1154, 0.3523, 0.3775, 0.058, 0.0406, 0.0785, 0.022, 0.0486, 0.0233, 0.1663, 0.1279, 0.0678, 0.0791, 0.0886, 0.2074, 0.0189, 0.0118, 0.078, 0.0718, 0.0296, 0.2038, 0.0408, 0.0475, 0.0259, 0.0423, 0.0151, 0.0355, 0.0426, 0.107, 0.0165, 0.216, 0.0421], [0.0343, 0.0094, 0.013], [0.0353, 0.025, 0.0556, 0.0475, 0.0966, 0.0497, 0.0411, 0.2592], [0.1274, 0.0991, 0.2255, 0.0041, 0.0041, 0.0063, 0.0486, 0.0699, 0.0452, 0.0943, 0.3583, 0.2236, 0.0031, 0.1404, 0.0043, 0.0043, 0.0242, 0.0165, 0.0864, 0.1123], [0.0296, 0.0086], [0.0159, 0.0319, 0.0705, 0.0423, 0.0705, 0.0895, 0.0565, 0.0113, 0.0943, 0.0943, 0.0941, 0.0353, 0.0094, 0.078, 0.0562], [0.1115, 0.0832, 0.296, 0.0846, 0.0611, 0.0489, 0.022, 0.0608, 0.1216, 0.1164, 0.0927, 0.013, 0.0392, 0.1135, 0.0165, 0.0576], [0.1912, 0.1981, 0.4229, 0.1154, 0.151, 0.0503, 0.0348, 0.0116, 0.0188, 0.0699, 0.0302, 0.108, 0.0091, 0.163, 0.0702], [0.0423, 0.0163, 0.0755, 0.0116, 0.0128, 0.0113, 0.0532, 0.0754, 0.0824, 0.025, 0.0062, 0.0074, 0.0111, 0.0173, 0.003, 0.0284, 0.0864, 0.014], [0.7647, 0.1238, 1.3243, 1.4567, 2.9441, 0.3133, 0.7727, 2.1636, 2.8179, 1.9699, 1.141, 0.4784, 1.5084, 2.2007, 1.9786, 1.7567, 1.2831, 1.5789, 1.9726, 1.4893, 1.5694, 0.9822], [0.0094], [0.1037, 0.1348], [0.0166, 0.0282, 0.3583, 0.1883, 0.1373, 0.3224], [0.2465, 0.1853, 0.0734, 0.1721], [0.1593], [0.0499, 0.592, 0.0489, 0.0865], [0.223, 0.1331, 0.888, 1.0233, 0.4406, 0.1595, 0.4902, 0.7927, 0.2335, 0.9504, 0.2549, 1.4038, 0.2747, 0.1389, 1.5965, 0.1277, 1.4646, 0.3127, 0.2304, 1.6846, 0.1296, 0.5613, 0.1403, 0.0561], [0.0468], [0.0797], [0.0652, 0.2516, 0.2962, 0.0144, 0.0421], [0.0512]]
+    },
+    {
+      transform: {
+        type: 'boxplot',
+        config: {
+          itemNameFormatter: function (params) {
+            return professions[params.value];
+          }
+        }
+      },
+    },
+    {
+      fromDatasetIndex: 1,
+      fromTransformResult: 1
+    }
+  ],
+  dataZoom: [{id: 'dataZoomX', type: 'slider', xAxisIndex: [0], left: 10, height: 10, filterMode: 'empty', start: 0, end: 100},{id: 'dataZoomY', type: 'slider', yAxisIndex: [0], filterMode: 'empty', start: 0, end: 100}],
+  tooltip: {trigger: 'item', axisPointer: {type: 'shadow'}},
+  grid: {left: '10%', right: '10%', bottom: '15%'},
+  yAxis: {type: 'category', boundaryGap: true, nameGap: 30, splitArea: {show: true}, splitLine: {show: true}},
+  xAxis: {type: 'value', name: 'CPS', splitArea: {show: true}},
+  series: [
+    {
+      name: 'boxplot',
+      type: 'boxplot',
+      datasetIndex: 1,
+      itemStyle: {
+        borderColor: function (seriesIndex) {  
+          return ProfessionColor[seriesIndex.name.split('_', 1)];
+                }
+      },
+      encode:{tooltip: [ 1, 2, 3, 4, 5]},
+      },
+    {
+      name: 'outlier',
+      type: 'scatter',
+      encode: { x: 1, y: 0 },
+      datasetIndex: 2,
+      itemStyle: {
+        color: function (seriesIndex) {  
+          return ProfessionColor[seriesIndex.name.split('_', 1)];
+                }
+      },
+    }
+  ]
+};		

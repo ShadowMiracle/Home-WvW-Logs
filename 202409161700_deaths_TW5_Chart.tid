@@ -1,0 +1,119 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_deaths_ChartData
+type: text/vnd.tiddlywiki
+
+
+option = {
+	legend: {},
+	grid: {left: '20%'},
+	tooltip: {},
+	dataset: [
+		{
+		source: [
+			['Deaths/Min','Total Deaths', 'Name', 'Profession', 'Fights', 'Duration' ],
+			[0.1707, 2, 'Q T Kitty', '{{Spellbreaker}}', '3', '703'],
+			[0.1244, 2, 'Snapcäster', '{{Tempest}}', '6', '965'],
+			[0.2135, 2, 'Klee Saria', '{{Holosmith}}', '2', '562'],
+			[0.1442, 2, 'Ometsuki', '{{Spellbreaker}}', '3', '832'],
+			[0.1233, 2, 'Gran Chariot', '{{Firebrand}}', '4', '973'],
+			[0.2034, 2, 'Lostarra Yiil', '{{Spellbreaker}}', '2', '590'],
+			[0.1042, 2, 'Zelllfurion', '{{Scrapper}}', '4', '1152'],
+			[0.2034, 2, 'Asteria Reaver', '{{Firebrand}}', '2', '590'],
+			[0.2372, 2, 'Peeradon Yamsonthor', '{{Holosmith}}', '4', '506'],
+			[0.2135, 2, 'Hitmonpanda', '{{Spellbreaker}}', '5', '562'],
+			[0.1961, 2, 'Eirakr', '{{Warrior}}', '4', '612'],
+			[0.3822, 2, 'Death By Habööb', '{{Reaper}}', '2', '314'],
+			[0.4211, 2, 'Basil Huss', '{{Willbender}}', '2', '285'],
+			[0.1001, 2, 'Triss Azathenai', '{{Druid}}', '10', '1199'],
+			[0.229, 1, 'Gimmeboo', '{{Willbender}}', '3', '262'],
+			[0.0853, 1, 'Blind Anomoly', '{{Renegade}}', '3', '703'],
+			[0.2222, 1, 'Ulamög', '{{Renegade}}', '1', '270'],
+			[0.2222, 1, 'Xaden Rior Son', '{{Herald}}', '1', '270'],
+			[0.1017, 1, 'Arty Tesla', '{{Holosmith}}', '2', '590'],
+			[0.1481, 1, 'Pathetic Pug', '{{Warrior}}', '2', '405'],
+			[0.0, 0, 'Persephone Reaver', '{{Scourge}}', '3', '703'],
+			[0.0, 0, 'Lady Of The Thistle', '{{Scourge}}', '2', '562'],
+			[0.0, 0, 'Kwhaenor', '{{Scourge}}', '1', '320'],
+			[0.0, 0, 'Dextéríty', '{{Soulbeast}}', '1', '320'],
+			[0.0, 0, 'Pathetic Pug', '{{Bladesworn}}', '1', '48'],
+			[0.0, 0, 'Läderach', '{{Willbender}}', '4', '364'],
+			[0.0, 0, 'Gael Redhood', '{{Spellbreaker}}', '1', '318'],
+			[0.0, 0, 'Waydot', '{{Soulbeast}}', '1', '71'],
+			[0.0, 0, 'Tesla Nigma', '{{Engineer}}', '1', '71'],
+			[0.0, 0, 'Joséph Elentir', '{{Berserker}}', '2', '131'],
+			[0.0, 0, 'Zero Cegadora', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Troy Sivan', '{{Herald}}', '4', '234'],
+			[0.0, 0, 'Marek Severyn', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Wvwol', '{{Herald}}', '4', '234'],
+			[0.0, 0, 'Ren Guarden', '{{Firebrand}}', '4', '234'],
+			[0.0, 0, 'Orang Tango', '{{Spellbreaker}}', '4', '234'],
+			[0.0, 0, 'Khiggles', '{{Druid}}', '4', '234'],
+			[0.0, 0, 'Comedylost', '{{Mirage}}', '4', '234'],
+			[0.0, 0, 'Stabibitty', '{{Firebrand}}', '4', '234'],
+			[0.0, 0, 'Mad Queen Fae', '{{Dragonhunter}}', '1', '63'],
+			[0.0, 0, 'Hur E Kane', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Evodguard', '{{Dragonhunter}}', '2', '103'],
+			[0.0, 0, 'Tater Tilly', '{{Tempest}}', '4', '234'],
+			[0.0, 0, 'Snake Bloodgood', '{{Firebrand}}', '4', '234'],
+			[0.0, 0, 'Olivia Sorrows', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Geese Witherspoon', '{{Weaver}}', '4', '234'],
+			[0.0, 0, 'Kapua Kalani', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Beefer Sutherlands', '{{Scrapper}}', '4', '234'],
+			[0.0, 0, 'Undeadunwanted', '{{Reaper}}', '4', '234'],
+			[0.0, 0, 'Thrall Fröstwolf', '{{Catalyst}}', '4', '234'],
+			[0.0, 0, 'Mungdeath', '{{Scourge}}', '4', '234'],
+			[0.0, 0, 'Kaotic Reaper X', '{{Druid}}', '4', '234'],
+			[0.0, 0, 'Fluidra', '{{Tempest}}', '4', '234'],
+			[0.0, 0, 'Emi Takei', '{{Dragonhunter}}', '4', '234'],
+			[0.0, 0, 'Artair Caden', '{{Chronomancer}}', '4', '234'],
+			[0.0, 0, 'Animalalfa', '{{Scrapper}}', '2', '103'],
+			]
+		},
+	],
+    xAxis: [
+    {},
+  ],
+  yAxis: { 
+    type: 'category'
+  },
+  visualMap: {
+    orient: 'horizontal',
+    left: 'center',
+    min: 0.0,
+    max: 0.4211,
+    precision: 2,
+    text: ['High Deaths /Sec', 'Low Deaths/Sec'],
+    // Map the score column to color
+    dimension: 0,
+    inRange: {
+      color: ['#FD665F', '#FFCE34', '#65B581']
+    }
+  },
+  series: [
+    {
+      name: 'Total Deaths',
+      type: 'bar',
+      encode: {
+        // Map 'Total Stat' column to x-axis.
+        x: 'Total Deaths',
+        // Map 'Name' row to y-axis.
+        y: 'Name',
+        tooltip: [3, 4, 5, 1, 0]
+      }
+    },
+    {
+      name: 'Deaths/Sec',
+      type: 'bar',
+      encode: {
+        // Map 'Total Stat' column to x-axis.
+        x: 'Total Deaths/Sec',
+        // Map 'Name' row to y-axis.
+        y: 'Name',
+        tooltip: [3, 4, 5, 1, 0]
+      }
+    }
+  ]
+};
+

@@ -1,0 +1,98 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_dist_ChartData
+type: text/vnd.tiddlywiki
+
+
+const names = ["Vasorvi", "Nightmare Crone", "Snake Bloodgoose", "Basil Huss", "Goose Daddy Rivan", "Katrina Riker", "Akenansi", "Harmoney Rae", "Harold Baulszak", "The Beanpole", "Goose Lee", "Rekian", "Goose Spr\u00edngsteen"];
+const professions = ["Harbinger", "Reaper", "Firebrand", "Firebrand", "Berserker", "Firebrand", "Scrapper", "Scourge", "Herald", "Reaper", "Firebrand", "Scrapper", "Scourge"];
+const ProfessionColor = {"Warrior": "#FF9933", "Berserker": "#FFA750", "Spellbreaker": "#FFB66D", "Bladesworn": "#FFC48A", "Guardian": "#3399cc", "Dragonhunter": "#50A7D3", "Firebrand": "#6DB6DA", "Willbender": "#8AC4E1", "Revenant": "#CC6342", "Herald": "#D3795D", "Renegade": "#DA8F78", "Vindicator": "#E1A593", "Engineer": "#996633", "Scrapper": "#A77B50", "Holosmith": "#B6916D", "Mechanist": "#C4A78A", "Ranger": "#66CC33", "Druid": "#7BD350", "Soulbeast": "#91DA6D", "Untamed": "#A7E18A", "Thief": "#CC6666", "Daredevil": "#D37B7B", "Deadeye": "#DA9191", "Specter": "#E1A7A7", "Elementalist": "#EC5752", "Tempest": "#EE6F6A", "Weaver": "#F18783", "Catalyst": "#F49F9C", "Mesmer": "#993399", "Chronomancer": "#A750A7", "Mirage": "#B66DB6", "Virtuoso": "#C48AC4", "Necromancer": "#339966", "Reaper": "#50A77B", "Scourge": "#6DB691", "Harbinger": "#8AC4A7"};
+const short_Prof = {"Guardian": "Gdn", "Dragonhunter": "Dgh",	"Firebrand": "Fbd",	"Willbender": "Wbd", "Warrior": "War", "Berserker": "Brs", "Spellbreaker": "Spb", "Bladesworn": "Bds", "Engineer": "Eng", "Scrapper": "Scr", "Holosmith": "Hls", "Mechanist": "Mec", "Ranger": "Rgr", "Druid": "Dru", "Soulbeast": "Slb", "Untamed": "Unt", "Thief": "Thf", "Daredevil": "Dar", "Deadeye": "Ded", "Specter": "Spe", "Elementalist": "Ele", "Tempest": "Tmp", "Weaver": "Wea", "Catalyst": "Cat", "Mesmer": "Mes", "Chronomancer": "Chr", "Mirage": "Mir", "Virtuoso": "Vir", "Necromancer": "Nec", "Reaper": "Rea", "Scourge": "Scg", "Harbinger": "Har", "Revenant": "Rev", "Herald": "Her", "Renegade": "Ren", "Vindicator": "Vin", "Unknown": "Ukn"};
+option = {
+  title: [
+    {text: 'Distance to Tag per Fight for all Fights Present', left: 'center'},
+    {text: 'Output in seconds across all fights \nupper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR', borderColor: '#999', borderWidth: 1, textStyle: {fontSize: 10}, left: '1%', top: '90%'}
+  ],
+dataset: [
+    {
+      // prettier-ignore
+      source: 
+[[2436, 11212, 9506, 4416, 2074, 1301, 1298, 947, 25711, 25962, 795, 1639, 17340, 7180, 392, 662, 515, 3041], [1275, 7419, 1082, 1906, 367, 5966, 1101, 4359, 492, 7108, 721, 584, 512, 1809, 889, 411, 500, 388, 211, 366, 6030], [1631, 4210, 7370, 1669, 404, 7173, 2724, 7810, 1278, 6282, 333, 2435, 1140, 4005, 1121, 509, 20124, 344, 334, 302, 3020], [5779, 3791, 348, 1116, 2365, 583, 4680, 6788, 442, 803, 938, 484, 965, 929, 10138, 482, 307, 336, 4623], [739, 2921, 1208, 450, 6182, 4315, 310, 2163, 4494, 7009, 2293, 4725, 517, 682, 670, 1309, 814, 468, 465, 344, 270, 322, 4665], [774, 5801, 2044, 1892, 497, 2978, 4080, 1437, 809, 5654, 1373, 969, 42522, 323, 1084, 396, 323, 291, 254, 387, 6099], [409, 1810, 302, 1164, 599, 1475, 506, 358, 396, 2735, 832, 768, 589, 838, 1335, 690, 14459, 11272, 354, 325, 600], [248, 3212, 2176, 2424, 270, 1390, 150, 2314, 251, 4032, 1156, 564, 510, 675, 294, 432, 375, 384, 224, 353, 6161], [318, 419, 423, 675, 357, 1817, 465, 334, 321, 3874, 404, 958, 29281, 780, 1268, 616, 456, 460, 284, 390, 237], [602, 2292, 671, 378, 919, 508, 3132, 406, 1134, 2566, 1117, 1914, 798, 6280, 1095, 732, 371, 383, 1689, 318, 274, 313, 145, 213, 1583], [279, 2465, 882, 290, 626, 5739, 211, 619, 425, 2912, 736, 217, 271, 7172, 312, 338, 583, 869, 451, 392, 305, 331, 217, 311, 231], [649, 779, 707, 544, 272, 1988, 2353, 1336, 306, 6586, 261, 1152, 500, 360, 1100, 355, 256, 322, 168, 266, 3810], [275, 448, 187, 1014, 368, 922, 327, 3975, 294, 5754, 380, 1018, 457, 339]]
+    },
+	{
+	  transform: {
+		type: 'boxplot',
+		config: {
+		  itemNameFormatter: function (params) {
+			return names[params.value]+" ("+short_Prof[professions[params.value]]+")";
+		  }
+		}
+	  },
+	},
+	{
+	  fromDatasetIndex: 1,
+	  fromTransformResult: 1
+	}
+  ],
+  dataZoom: [{type: 'slider', show: true, yAxisIndex: [0], start: 100, end: 50 },{type: 'inside', yAxisIndex: [0], start: 100, end: 50 },],
+  tooltip: {trigger: 'item'},
+  grid: {left: '25%', right: '10%', bottom: '15%'},
+  yAxis: {type: 'category', boundaryGap: true, nameGap: 30, splitArea: {show: true}, splitLine: {show: true}},
+  xAxis: {type: 'value', name: 'Sec', splitArea: {show: true}},
+  series: [
+	{
+	  name: 'boxplot',
+	  type: 'boxplot',
+	  datasetIndex: 1,
+	  tooltip: {trigger: 'item',
+		  formatter: function (params) {
+			//console.log(params.value);
+		  return `<u><b>${params.value[0]}</b></u>
+	<table>
+	  <tr>
+	  	<td align="right">&#x2022;</td>
+		<td align="left">Low   :</td>
+		<td style="color:blue;"align="right"><b>${params.value[1].toFixed(2)}</b></td>
+	  </tr>
+	  <tr>
+	  	<td align="right">&#x2022;</td>
+		<td align="left">Q1    :</td>
+		<td style="color:blue;"align="right"><b>${params.value[2].toFixed(2)}</b></td>
+	  </tr>
+	  <tr>
+	  	<td align="right">&#x2022;</td>
+		<td align="left">Q2    :</td>
+		<td style="color:blue;"align="right"><b>${params.value[3].toFixed(2)}</b></td>
+	  </tr>
+	  <tr>
+	  	<td align="right">&#x2022;</td>
+		<td align="left">Q3    :</td>
+		<td style="color:blue;"align="right"><b>${params.value[4].toFixed(2)}</b></td>
+	  </tr>
+	  <tr>
+	  	<td align="right">&#x2022;</td>
+		<td align="left">High  :</td>
+		<td style="color:blue;"align="right"><b>${params.value[5].toFixed(2)}</b></td>
+	  </tr>  
+	</table>`;              
+		},    
+		axisPointer: {type: 'shadow'}},      
+	  itemStyle: {
+		borderColor: function (seriesIndex) {
+		  let myIndex = names.indexOf(seriesIndex.name.split(" (")[0]);
+		  return ProfessionColor[professions[myIndex]];
+				},
+		borderWidth: 2
+	  },
+	  encode:{tooltip: [ 1, 2, 3, 4, 5]},
+	  },
+	{
+	  name: 'outlier',
+	  type: 'scatter',
+	  encode: { x: 1, y: 0 },
+	  datasetIndex: 2,
+	}
+  ]
+};
+

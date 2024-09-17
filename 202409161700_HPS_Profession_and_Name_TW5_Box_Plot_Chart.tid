@@ -1,0 +1,64 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_HPS_Profession_and_Name_Box_PlotChartData
+type: text/vnd.tiddlywiki
+
+const professions = ['Berserker_Dps\nGoose Daddy Rivan', 'Catalyst_Dps\nSung Tsu Tao', 'Catalyst_Dps\nThrall Fröstwolf', 'Chronomancer_Support\nArtair Caden', 'Daredevil_Dps\nAssassin Stryke', 'Dragonhunter_Dps\nEmi Takei', 'Dragonhunter_Dps\nEvodguard', 'Druid_Dps\nDarwyn D Fuego', 'Druid_Dps\nKaotic Reaper X', 'Druid_Support\nDarwyn D Fuego', 'Druid_Support\nDèjávu', 'Druid_Support\nKaotic Reaper X', 'Druid_Support\nKhiggles', 'Druid_Support\nTriss Azathenai', 'Firebrand_Cele\nSnake Bloodgood', 'Firebrand_Cele\nStabibitty', 'Firebrand_Dps\nAsteria Reaver', 'Firebrand_Dps\nBasil Huss', 'Firebrand_Dps\nGoose Lee', 'Firebrand_Dps\nKatrina Riker', 'Firebrand_Dps\nNentan', 'Firebrand_Dps\nRen Guarden', 'Firebrand_Dps\nSnake Bloodgoose', 'Firebrand_Support\nBasil Huss', 'Firebrand_Support\nGoose Lee', 'Firebrand_Support\nGran Chariot', 'Firebrand_Support\nKatrina Riker', 'Firebrand_Support\nNentan', 'Firebrand_Support\nSnake Bloodgoose', 'Harbinger_Condi\nKeeper Of The Night', 'Harbinger_Dps\nVasorvi', 'Herald_Dps\nGoose Willis', 'Herald_Dps\nHarold Baulszak', 'Herald_Dps\nTroy Sivan', 'Herald_Dps\nWvwol', 'Herald_Dps\nXaden Rior Son', 'Holosmith_Dps\nKlee Saria', 'Holosmith_Dps\nPeeradon Yamsonthor', 'Mechanist_Dps\nFeng Yang Choy', 'Reaper_Dps\nThe Beanpole', 'Renegade_Dps\nBlind Anomoly', 'Renegade_Dps\nUlamög', 'Scourge_Cele\nGoose Spríngsteen', 'Scourge_Cele\nHarmoney Rae', 'Scourge_Cele\nHur E Kane', 'Scourge_Cele\nKapua Kalani', 'Scourge_Cele\nKwhaenor', 'Scourge_Condi\nGoose Spríngsteen', 'Scourge_Condi\nHarmoney Rae', 'Scourge_Condi\nMarek Severyn', 'Scourge_Condi\nMungdeath', 'Scourge_Condi\nOlivia Sorrows', 'Scourge_Dps\nGoose Spríngsteen', 'Scourge_Dps\nHarmoney Rae', 'Scourge_Dps\nLady Of The Thistle', 'Scourge_Dps\nMarek Severyn', 'Scourge_Dps\nOlivia Sorrows', 'Scourge_Dps\nPersephone Reaver', 'Scrapper_Dps\nAkenansi', 'Scrapper_Dps\nBeefer Sutherlands', 'Scrapper_Dps\nSamwrench', 'Scrapper_Dps\nZelllfurion', 'Scrapper_Support\nAnimalalfa', 'Scrapper_Support\nRekian', 'Soulbeast_Cele\nDextéríty', 'Spellbreaker_Cele\nQ T Kitty', 'Spellbreaker_Dps\nHitmonpanda', 'Spellbreaker_Dps\nOmetsuki', 'Spellbreaker_Support\nLostarra Yiil', 'Spellbreaker_Support\nOmetsuki', 'Tempest_Cele\nFluidra', 'Tempest_Dps\nFluidra', 'Tempest_Dps\nKulgan Al Thor', 'Tempest_Support\nQueen Jellybean', 'Tempest_Support\nSnapcäster', 'Tempest_Support\nSophia Shae', 'Tempest_Support\nTater Tilly', 'Warrior_Dps\nEirakr', 'Warrior_Dps\nPathetic Pug', 'Willbender_Dps\nGimmeboo']
+
+ProfessionColor = {"Warrior":"#FFD166", "Berserker":"#B39247", "Spellbreaker":"#665429", "Bladesworm":"#19150A", "Guardian":"#72C1D9", "Dragonhunter":"#508798", "Firebrand":"#2E4D57", "Willbender":"#0B1316", "Revenant":"#D16E5A", "Herald":"#924D3F", "Renegade":"#542C24", "Vindicator":"#2A1612", "Engineer":"#D09C59", "Scrapper":"#926D3E", "Holosmith":"#533E24", "Mechanist":"#2A1F12", "Ranger":"#8CDC82", "Druid":"#629A5B", "Soulbeast":"#385834", "Untamed":"#1C2C1A", "Thief":"#C08F95", "Daredevil":"#866468", "Deadeye":"#4D393C", "Specter":"#261D1E", "Elementalist":"#F68A87", "Tempest":"#AC615F", "Weaver":"#623736", "Catalyst":"#311C1B", "Mesmer":"#B679D5", "Chronomancer":"#7F5595", "Mirage":"#493055", "Virtuoso":"#24182B", "Necromancer":"#52A76F", "Reaper":"#39754E", "Scourge":"#21432C", "Harbinger":"#08110B"}
+option = {
+  title: [
+    {text: 'HPS by Profession_and_Name across all fights', left: 'center'},
+    {text: 'HPS across all fights \nupper: Q3 + 1.5 * IQR \nlower: Q1 - 1.5 * IQR', borderColor: '#999', borderWidth: 1, textStyle: {fontSize: 10}, left: '1%', top: '90%'}
+  ],
+dataset: [
+    {
+      // prettier-ignore
+      source: [[178.0192, 71.6228, 58.7639, 111.6572], [203.1611, 70.9907, 270.8311, 108.0419], [26.5417], [6.5575, 44.7812], [0.3715, 3.1245, 1.2346], [2.8332], [55.852, 80.9787], [1272.3505], [141.2356], [77.4218, 73.6733, 18.7404, 299.2741, 1316.7985, 121.7602, 2135.5561, 116.1742, 1934.3012, 2489.3805, 2493.31, 1149.0186, 520.7108, 2835.3917, 75.5119, 951.5846, 2681.6515, 1887.7832], [32.3387, 1189.6333, 4634.4742, 2837.1917, 1274.5683, 933.6541, 3169.8331], [84.925, 32.5401, 1804.3837], [50.0215, 6.0582, 340.3482], [669.9855, 258.1719, 1599.7463, 680.2896, 1051.5618, 350.3417, 2735.5126, 842.3129, 626.7733], [61.4702], [103.4203, 14.6462, 245.0067], [15.713, 44.1484], [192.5923, 372.4125, 914.6094, 900.3959], [111.4575, 189.4192, 319.2501, 197.0859, 134.6141, 73.0409, 217.2101, 411.84, 107.6111, 3.1359, 347.6384, 7.1876, 181.3988, 374.3318, 149.6681, 45.5001, 57.6599, 126.8493, 106.9386, 12.8718, 106.097], [82.2586, 152.1786, 70.9612, 147.1602, 262.3303, 362.3358, 1373.6376, 163.3218, 130.2793, 109.279, 124.8129, 166.221, 157.4279, 105.6058], [557.8482], [3.1203, 5.3259, 36.2957], [22.0509, 28.2186], [465.1683, 85.4246, 658.8668, 111.8591, 609.9053, 480.989, 175.4121, 73.871, 52.3164, 82.6004, 143.5482, 47.3444], [6.5474, 6.3578, 31.8275], [390.7204, 232.378, 174.2928, 151.9112], [571.0192, 150.5606, 14.7757, 160.5921, 1043.3138, 327.6234], [590.437, 129.5772, 125.5226, 253.6627], [38.9372, 96.4908, 64.469, 29.3729, 34.6901, 107.6851, 29.3259, 165.7773, 241.8651, 239.334, 91.4879, 57.1862, 44.1898, 53.7142], [5.9522], [1.3607, 0.5374, 0.8657], [1.9435, 25.3645, 5.5818, 40.1107, 167.4239, 167.8661, 52.7052, 66.8076, 30.692, 80.2981, 41.6112, 55.9632, 19.3998, 13.0291, 489.5529, 24.2312, 88.9197, 18.431, 39.7499, 9.0958, 13.2902, 6.9362, 5.9608, 13.99], [4.2656, 142.2753, 39.3192, 16.2173], [2.8993, 22.5245], [2.9153], [68.4797], [1.754], [1.1879, 33.1282, 53.2589], [9.8737, 62.8583, 82.7932, 64.8156, 60.6515, 5.5204, 20.0597, 41.3079, 29.0185], [0.4209, 44.0149, 31.6757], [148.7826, 182.9659, 297.9543], [33.8452], [26.4148, 37.6627, 15.9329, 253.2386, 3.4364, 158.4783], [103.8445, 106.1058], [0.7806, 1.7196], [21.2841], [33.0675], [18.5885, 104.6445], [0.4645, 36.7059], [55.1977], [38.8224, 66.3754], [14.4132], [122.5102, 21.5741, 0.9926, 119.2129], [1.8382], [1.6], [6.3881], [6.404, 4.5528], [24.2362, 49.509], [33.0086, 0.8942, 318.6714, 75.4282, 56.3384, 146.9812, 284.1872, 172.828, 83.9335, 157.2735, 357.2921, 100.4084, 266.235, 69.8473, 44.2257, 66.2122, 169.9647, 7.3862, 233.1439], [13.9917, 6.1081, 23.3561], [445.5704, 7.3244, 5.5704, 4.0998], [22.708, 9.7418], [171.2679, 155.593], [2017.8876, 3496.7043, 4745.848, 628.7949, 2166.4583, 4114.4295, 5240.4751, 3861.185, 2048.1685, 308.6245, 2353.2196, 420.163, 2531.004, 5431.2232, 3529.9555, 2162.7108, 2497.2423, 2335.2846, 2410.6651, 2012.7422, 1126.5277], [94.6526], [58.5254, 54.2748], [80.3274, 1232.0732, 207.6891, 351.4175, 1652.7034], [113.6585], [2228.6548, 1525.975], [40.048, 68.0628], [16.6473], [154.9369], [27.4508, 81.7937], [383.9797, 165.0823, 34.0514, 287.018, 395.6497, 106.8317, 47.6213, 66.5835, 10.7622, 39.9257, 47.3865], [1083.522, 1233.1088, 1061.8813, 1277.6192, 840.0812, 1831.1654], [94.1607, 22.6352, 46.5784, 18.9855], [607.2037, 315.6581, 579.1529], [15.406, 11.9989], [0.2497], [16.6698, 17.724, 15.281]]
+    },
+    {
+      transform: {
+        type: 'boxplot',
+        config: {
+          itemNameFormatter: function (params) {
+            return professions[params.value];
+          }
+        }
+      },
+    },
+    {
+      fromDatasetIndex: 1,
+      fromTransformResult: 1
+    }
+  ],
+  dataZoom: [{id: 'dataZoomX', type: 'slider', xAxisIndex: [0], left: 10, height: 10, filterMode: 'empty', start: 0, end: 100},{id: 'dataZoomY', type: 'slider', yAxisIndex: [0], filterMode: 'empty', start: 0, end: 30}],
+  tooltip: {trigger: 'item', axisPointer: {type: 'shadow'}},
+  grid: {left: '10%', right: '10%', bottom: '15%'},
+  yAxis: {type: 'category', boundaryGap: true, nameGap: 30, splitArea: {show: true}, splitLine: {show: true}},
+  xAxis: {type: 'value', name: 'HPS', splitArea: {show: true}},
+  series: [
+    {
+      name: 'boxplot',
+      type: 'boxplot',
+      datasetIndex: 1,
+      itemStyle: {
+        borderColor: function (seriesIndex) {  
+          return ProfessionColor[seriesIndex.name.split('_', 1)];
+                }
+      },
+      encode:{tooltip: [ 1, 2, 3, 4, 5]},
+      },
+    {
+      name: 'outlier',
+      type: 'scatter',
+      encode: { x: 1, y: 0 },
+      datasetIndex: 2,
+      itemStyle: {
+        color: function (seriesIndex) {  
+          return ProfessionColor[seriesIndex.name.split('_', 1)];
+                }
+      },
+    }
+  ]
+};		

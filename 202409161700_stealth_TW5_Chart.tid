@@ -1,0 +1,70 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_stealth_ChartData
+type: text/vnd.tiddlywiki
+
+
+option = {
+	legend: {},
+	grid: {left: '20%'},
+	tooltip: {},
+	dataset: [
+		{
+		source: [
+			['Stealth/Sec','Total Stealth', 'Name', 'Profession', 'Fights', 'Duration' ],
+			[0.019, 10, 'Peeradon Yamsonthor', '{{Holosmith}}', '4', '506'],
+			[0.1034, 11, 'Animalalfa', '{{Scrapper}}', '2', '103'],
+			[0.0702, 16, 'Kaotic Reaper X', '{{Druid}}', '4', '234'],
+			[0.0253, 24, 'Assassin Stryke', '{{Daredevil}}', '6', '965'],
+			[0.0625, 68, 'Dèjávu', '{{Druid}}', '9', '1089'],
+			[0.106, 127, 'Triss Azathenai', '{{Druid}}', '10', '1199'],
+			[0.0721, 165, 'Darwyn D Fuego', '{{Druid}}', '19', '2290'],
+			]
+		},
+	],
+    xAxis: [
+    {},
+  ],
+  yAxis: { 
+    type: 'category'
+  },
+  visualMap: {
+    orient: 'horizontal',
+    left: 'center',
+    min: 0.019,
+    max: 0.106,
+    precision: 2,
+    text: ['High Stealth /Sec', 'Low Stealth/Sec'],
+    // Map the score column to color
+    dimension: 0,
+    inRange: {
+      color: ['#FD665F', '#FFCE34', '#65B581']
+    }
+  },
+  series: [
+    {
+      name: 'Total Stealth',
+      type: 'bar',
+      encode: {
+        // Map 'Total Stat' column to x-axis.
+        x: 'Total Stealth',
+        // Map 'Name' row to y-axis.
+        y: 'Name',
+        tooltip: [3, 4, 5, 1, 0]
+      }
+    },
+    {
+      name: 'Stealth/Sec',
+      type: 'bar',
+      encode: {
+        // Map 'Total Stat' column to x-axis.
+        x: 'Total Stealth/Sec',
+        // Map 'Name' row to y-axis.
+        y: 'Name',
+        tooltip: [3, 4, 5, 1, 0]
+      }
+    }
+  ]
+};
+

@@ -1,0 +1,143 @@
+created: 20240916170010
+creator: Drevarr
+tags: ChartData
+title: 202409161700_fury_might_BubbleChartData
+type: text/vnd.tiddlywiki
+
+
+
+var option = {
+  dataset: [{
+    source: [
+            ["Name", "Profession", "Fury", "Might", "DPS", "color"],
+            ["Animalalfa", "Scrapper", 85.9, 92.36, 86, "#A77B50"],
+            ["Artair Caden", "Chronomancer", 59.87, 75.82, 93, "#A750A7"],
+            ["Emi Takei", "Dragonhunter", 94.48, 92.19, 1430, "#50A7D3"],
+            ["Fluidra", "Tempest", 84.7, 61.06, 368, "#EE6F6A"],
+            ["Kaotic Reaper X", "Druid", 89.77, 79.72, 149, "#7BD350"],
+            ["Mungdeath", "Scourge", 78.91, 87.56, 921, "#6DB691"],
+            ["Thrall Fröstwolf", "Catalyst", 93.9, 84.78, 1385, "#F49F9C"],
+            ["Undeadunwanted", "Reaper", 89.28, 73.56, 1300, "#50A77B"],
+            ["Beefer Sutherlands", "Scrapper", 75.42, 96.39, 3467, "#A77B50"],
+            ["Goose Lee", "Firebrand", 80.1, 85.97, 690, "#6DB6DA"],
+            ["Goose Willis", "Herald", 57.72, 91.05, 831, "#D3795D"],
+            ["Kapua Kalani", "Scourge", 80.66, 85.13, 1102, "#6DB691"],
+            ["Triss Azathenai", "Druid", 78.52, 85.79, 46, "#7BD350"],
+            ["Geese Witherspoon", "Weaver", 91.41, 77.27, 1748, "#F18783"],
+            ["Goose Daddy Rivan", "Berserker", 60.56, 74.9, 273, "#FFA750"],
+            ["Olivia Sorrows", "Scourge", 77.68, 70.97, 510, "#6DB691"],
+            ["Snake Bloodgood", "Firebrand", 70.69, 79.67, 896, "#6DB6DA"],
+            ["Tater Tilly", "Tempest", 84.61, 77.43, 211, "#EE6F6A"],
+            ["Darwyn D Fuego", "Druid", 59.4, 63.54, 53, "#7BD350"],
+            ["Evodguard", "Dragonhunter", 74.89, 79.07, 1228, "#50A7D3"],
+            ["Hur E Kane", "Scourge", 72.85, 79.23, 696, "#6DB691"],
+            ["Mad Queen Fae", "Dragonhunter", 95.88, 78.9, 742, "#50A7D3"],
+            ["Stabibitty", "Firebrand", 78.54, 82.41, 1686, "#6DB6DA"],
+            ["Comedylost", "Mirage", 92.1, 86.42, 2447, "#B66DB6"],
+            ["Khiggles", "Druid", 92.13, 92.82, 53, "#7BD350"],
+            ["Orang Tango", "Spellbreaker", 92.45, 71.59, 1035, "#FFB66D"],
+            ["Ren Guarden", "Firebrand", 89.09, 84.21, 285, "#6DB6DA"],
+            ["Wvwol", "Herald", 91.28, 91.09, 1401, "#D3795D"],
+            ["Dèjávu", "Druid", 74.42, 74.75, 23, "#7BD350"],
+            ["Marek Severyn", "Scourge", 78.04, 74.57, 639, "#6DB691"],
+            ["Troy Sivan", "Herald", 82.22, 84.89, 1197, "#D3795D"],
+            ["Zero Cegadora", "Scourge", 86.6, 76.48, 764, "#6DB691"],
+            ["The Beanpole", "Reaper", 55.08, 89.12, 1629, "#50A77B"],
+            ["Joséph Elentir", "Berserker", 94.82, 86.05, 978, "#FFA750"],
+            ["Tesla Nigma", "Engineer", 0.0, 0.0, 0, "#996633"],
+            ["Waydot", "Soulbeast", 0.0, 0.0, 0, "#91DA6D"],
+            ["Basil Huss", "Willbender", 29.27, 83.93, 677, "#8AC4E1"],
+            ["Kulgan Al Thor", "Tempest", 18.88, 43.74, 442, "#EE6F6A"],
+            ["Goose Spríngsteen", "Scourge", 61.6, 86.57, 618, "#6DB691"],
+            ["Rekian", "Scrapper", 59.66, 90.54, 80, "#A77B50"],
+            ["Harmoney Rae", "Scourge", 74.22, 89.81, 395, "#6DB691"],
+            ["Harold Baulszak", "Herald", 73.21, 85.68, 187, "#D3795D"],
+            ["Katrina Riker", "Firebrand", 87.35, 85.5, 274, "#6DB6DA"],
+            ["Nightmare Crone", "Reaper", 70.85, 83.33, 485, "#50A77B"],
+            ["Akenansi", "Scrapper", 58.13, 64.93, 876, "#A77B50"],
+            ["Death By Habööb", "Reaper", 56.41, 59.79, 202, "#50A77B"],
+            ["Snake Bloodgoose", "Firebrand", 55.41, 66.62, 406, "#6DB6DA"],
+            ["Sung Tsu Tao", "Catalyst", 22.08, 35.91, 250, "#F49F9C"],
+            ["Basil Huss", "Firebrand", 46.44, 66.96, 51, "#6DB6DA"],
+            ["Eirakr", "Warrior", 27.99, 50.66, 28, "#FF9933"],
+            ["Vasorvi", "Harbinger", 53.71, 51.38, 287, "#8AC4A7"],
+            ["Gael Redhood", "Spellbreaker", 9.75, 39.43, 7, "#FFB66D"],
+            ["Samwrench", "Scrapper", 17.78, 32.14, 161, "#A77B50"],
+            ["Queen Jellybean", "Tempest", 69.66, 82.62, 325, "#EE6F6A"],
+            ["Nentan", "Firebrand", 35.19, 64.05, 134, "#6DB6DA"],
+            ["Läderach", "Willbender", 0.0, 8.3, 77, "#8AC4E1"],
+            ["Best Sell By", "Reaper", 13.97, 40.99, 484, "#50A77B"],
+            ["Hitmonpanda", "Spellbreaker", 67.72, 87.78, 63, "#FFB66D"],
+            ["Peeradon Yamsonthor", "Holosmith", 63.17, 85.12, 1051, "#B6916D"],
+            ["Feng Yang Choy", "Mechanist", 44.2, 79.71, 117, "#C4A78A"],
+            ["Keeper Of The Night", "Harbinger", 64.51, 37.74, 248, "#8AC4A7"],
+            ["Pathetic Pug", "Bladesworn", 72.51, 72.0, 637, "#FFC48A"],
+            ["Pathetic Pug", "Warrior", 83.89, 87.99, 1218, "#FF9933"],
+            ["Arty Tesla", "Holosmith", 42.98, 46.75, 256, "#B6916D"],
+            ["Asteria Reaver", "Firebrand", 76.14, 74.3, 433, "#6DB6DA"],
+            ["Dextéríty", "Soulbeast", 63.26, 75.87, 785, "#91DA6D"],
+            ["Kwhaenor", "Scourge", 35.42, 39.39, 168, "#6DB691"],
+            ["Zelllfurion", "Scrapper", 29.94, 45.98, 151, "#A77B50"],
+            ["Lostarra Yiil", "Spellbreaker", 80.98, 90.84, 33, "#FFB66D"],
+            ["Gran Chariot", "Firebrand", 70.4, 88.58, 159, "#6DB6DA"],
+            ["Xaden Rior Son", "Herald", 58.01, 55.24, 505, "#D3795D"],
+            ["Ometsuki", "Spellbreaker", 33.08, 59.59, 169, "#FFB66D"],
+            ["Ulamög", "Renegade", 71.63, 84.62, 242, "#DA8F78"],
+            ["Assassin Stryke", "Daredevil", 51.63, 50.11, 329, "#D37B7B"],
+            ["Klee Saria", "Holosmith", 28.19, 61.09, 59, "#B6916D"],
+            ["Lady Of The Thistle", "Scourge", 36.73, 68.07, 416, "#6DB691"],
+            ["Snapcäster", "Tempest", 50.25, 93.12, 34, "#EE6F6A"],
+            ["Q T Kitty", "Spellbreaker", 39.69, 75.26, 64, "#FFB66D"],
+            ["Sophia Shae", "Tempest", 43.55, 77.27, 42, "#EE6F6A"],
+            ["Blind Anomoly", "Renegade", 59.74, 82.85, 46, "#DA8F78"],
+            ["Persephone Reaver", "Scourge", 67.31, 89.09, 371, "#6DB691"],
+            ["Gimmeboo", "Willbender", 82.12, 94.11, 2639, "#8AC4E1"],
+   ]
+  }],
+  visualMap: {
+    show: true,
+    dimension: 4, // means the 5th column		
+    min: 0, // lower bound
+    max: 3467, // upper bound
+    inRange: {
+      // Size of the bubble.
+      symbolSize: [5, 50]
+    }
+  },			
+xAxis: {
+    type: 'value',
+    name: "Fury Uptime"
+  },
+  yAxis: {
+    type: 'value',
+    name: "Might Uptime"
+  },
+  tooltip: {trigger: 'axis',
+        axisPointer: {
+          type: 'cross'
+        },    
+},
+  series: [
+    {
+      type: 'scatter',
+      encode: {
+        // Map "amount" column to x-axis.
+        x: 'Fury',
+        // Map "product" row to y-axis.
+        y: 'Might',
+        // format tooltip
+        tooltip: [0, 1, 2, 3, 4],
+      },	
+      itemStyle: {
+        color: function(seriesIndex) {
+          console.log(seriesIndex);
+        	console.log(seriesIndex.color);
+        	console.log(seriesIndex.data[5]);
+        	if (seriesIndex.data[5]){
+        	  return seriesIndex.data[5];
+        	}
+        }
+      }
+    }
+  ]
+};
